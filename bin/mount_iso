@@ -55,7 +55,7 @@ fi
 
 memdev=`mdconfig -a -t vnode -f "$1"`
 
-if [ ! -e "/dev/${memdev}" ]; then
+if [ "x" = "x${memdev}" ] || [ ! -e "/dev/${memdev}" ]; then
   echo "ERROR: Can't map file $1 with mdconfig."
   exit 1
 fi
